@@ -997,6 +997,7 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
                 JOIN mdl_forum AS f ON f.id = fd.forum 
                 JOIN mdl_course AS c ON c.id = fd.course 
                 WHERE fd.course = ?
+                AND f.name <> "Discussion Forum"
                 GROUP BY f.id', array($course->id));
             $courseforums = array();
             foreach ($rs as $record) {
