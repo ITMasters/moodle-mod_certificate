@@ -1019,7 +1019,8 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
                 JOIN mdl_course AS c ON c.id = fd.course 
                 WHERE fd.course = ?
                 AND u.id = ?
-                GROUP BY f.id,u.id', array($course->id,$userid));
+                AND fp.created <= ?
+                GROUP BY f.id,u.id', array($course->id,$userid,$certificate->cutoffdate));
             $userforums = array();
             foreach ($rs as $record) {
                 $userforums[] = $record->forum;
