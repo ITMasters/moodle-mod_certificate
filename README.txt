@@ -1,5 +1,15 @@
-QUICK INSTALL
-=============
+## ITM Certificate.
+
+This Certificate Module. Is for the exam activities, where the award Certificates are based on quiz attempts and only works with quizes 
+
+
+
+## Moodle Generic Installation
+Below is a guide on how the moodle mod certifcate module was installed. It is only a reference.
+
+>Only A Reference.
+
+### QUICK INSTALL
 
 There are two installation methods that are available. Follow one of these, then log into your Moodle site as an administrator and visit the notifications page to complete the install.
 

@@ -1039,6 +1039,11 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
             $grade = $othergrade + $forumgrade;
 
         }
+		if ($grade >= 100) {
+            $grade = 100;
+        }
+		$grade = round($grade);
+		
         $grade_class = '';
         if($grade >= 85){
             $grade_class = 'High Distinction';
