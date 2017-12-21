@@ -1033,7 +1033,7 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
                 }
             }
             $forumComplete = $userForumCount/$totalForumCount;
-	          $forumGrade = $forumPercent*$forumComplete;
+	          $forumGrade = $forumpercentage*$forumComplete;
 	          $grade = $grade + $forumGrade;
 
         }
