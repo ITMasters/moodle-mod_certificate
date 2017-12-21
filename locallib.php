@@ -991,11 +991,11 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
         if($certificate->forumgrades != NULL && $certificate->forumgrades == true){
             $forumpercentage = $certificate->forumpercent;
             $rs = $DB->get_recordset_sql('
-               SELECT 
+               SELECT
                 f.id AS fid
                 FROM mdl_forum_discussions AS fd
-                JOIN mdl_forum AS f ON f.id = fd.forum 
-                JOIN mdl_course AS c ON c.id = fd.course 
+                JOIN mdl_forum AS f ON f.id = fd.forum
+                JOIN mdl_course AS c ON c.id = fd.course
                 WHERE fd.course = ?
                 AND f.name <> "Discussion Forum"
                 GROUP BY f.id', array($course->id));
@@ -1006,17 +1006,17 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
             $rs->close();
 
             $rs = $DB->get_recordset_sql('
-               SELECT 
+               SELECT
                 u.id AS id
                 ,fd.forum AS forum
                 ,COUNT(*) AS posts
                 ,(SELECT COUNT(*) FROM mdl_forum_discussions AS ifd JOIN mdl_forum AS iforum ON iforum.id = ifd.forum  WHERE ifd.userid = fp.userid AND iforum.id = f.id) AS cAllDiscussion
-                 
-                FROM mdl_forum_posts AS fp 
-                JOIN mdl_user AS u ON u.id = fp.userid 
-                JOIN mdl_forum_discussions AS fd ON fp.discussion = fd.id 
-                JOIN mdl_forum AS f ON f.id = fd.forum 
-                JOIN mdl_course AS c ON c.id = fd.course 
+
+                FROM mdl_forum_posts AS fp
+                JOIN mdl_user AS u ON u.id = fp.userid
+                JOIN mdl_forum_discussions AS fd ON fp.discussion = fd.id
+                JOIN mdl_forum AS f ON f.id = fd.forum
+                JOIN mdl_course AS c ON c.id = fd.course
                 WHERE fd.course = ?
                 AND u.id = ?
                 GROUP BY f.id,u.id', array($course->id,$userid));
@@ -1032,18 +1032,16 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
                     $userforumcount++;
                 }
             }
-            $forumcomplete = $userforumcount/$totalforums;
-            $forumgrade = $certificate->forumpercent * $forumcomplete;
-            $otherpercent = (100 - $certificate->forumpercent) / 100;
-            $othergrade = $grade * $otherpercent;
-            $grade = $othergrade + $forumgrade;
+            $forumComplete = $userForumCount/$totalForumCount;
+	          $forumGrade = $forumpercentage*$forumComplete;
+	          $grade = $grade + $forumGrade;
 
         }
-		if ($grade >= 100) {
+		if ($grade > 100) {
             $grade = 100;
         }
 		$grade = round($grade);
-		
+
         $grade_class = '';
         if($grade >= 85){
             $grade_class = 'High Distinction';
