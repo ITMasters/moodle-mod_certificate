@@ -1054,10 +1054,10 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
         } else {
             $grade_class = 'Fail';
         }
-        if (!valueonly) {
+        if (!$valueonly) {
             $grade = $grade_class . ' (' . $grade . '/100)';
         }
-        else if (valueonly) {
+        else if ($valueonly) {
         return $grade;
         }
     }
