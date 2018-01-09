@@ -135,6 +135,9 @@ if (empty($action)) { // Not displaying PDF
         }
         echo html_writer::tag('div', $OUTPUT->render($button), array('style' => 'text-align:center'));
     }
+    else{
+    	echo html_writer::tag('p', certificate_itm_mingrade_met($certificate, $course), array('style' => 'text-align:center'));
+    }
     echo $OUTPUT->footer($course);
     exit;
 } else { // Output to pdf
