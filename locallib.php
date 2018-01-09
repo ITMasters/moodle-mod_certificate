@@ -1052,11 +1052,11 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
         } elseif ($grade >= 50) {
             $grade_class = 'Pass';
         } else {
-            $grade_class = 'Sorry you didnt pass: ';
+            $grade_class = 'Sorry you did not pass';
         }
 
         if (!$valueonly){
-            return $grade = $grade_class . ' (' . $grade . '/100)';
+            return $grade = $grade_class . ', Your grade was: (' . $grade . '/100)';
         }
         elseif($valueonly){
         return $grade;
