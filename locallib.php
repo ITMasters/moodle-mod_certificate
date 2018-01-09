@@ -1036,7 +1036,7 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
              $forumComplete = $userforumcount/$totalforums;
               $forumGrade = $forumpercentage*$forumComplete;
               $grade = $grade + $forumGrade;
-              
+
         }
         if ($grade > 100) {
             $grade = 100;
@@ -1055,7 +1055,7 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
             $grade_class = 'Fail';
         }
         if (!valueonly) {
-            $grade = $grade_class . ' (' . $grade) . '/100)';
+            $grade = $grade_class . ' (' . $grade . '/100)';
         }
         else if (valueonly) {
         return $grade;
