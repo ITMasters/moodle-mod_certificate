@@ -1056,7 +1056,7 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
         }
 
         if (!$valueonly){
-            return $grade = $grade_class . ', (' . $grade . '/100)';
+            return $grade = $grade_class . ' (' . $grade . '/100)';
         }
         elseif($valueonly){
         return $grade;
