@@ -997,6 +997,9 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
         }
 
         $grade = $highestpercent;
+        $rs->close();
+        }
+
         if($certificate->forumgrades != NULL && $certificate->forumgrades == true){
             $forumpercentage = $certificate->forumpercent;
             $rs = $DB->get_recordset_sql('
