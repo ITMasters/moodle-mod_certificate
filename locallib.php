@@ -988,6 +988,7 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
         }
         $rs->close();
         if ($highestpercent == 0) {
+            //Testing if build is pushed on a branch
              $rs = $DB->get_recordset_sql('
                 SELECT finalgrade
                 FROM mdl_grade_grades
