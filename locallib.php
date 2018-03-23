@@ -991,7 +991,7 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
              $rs = $DB->get_recordset_sql('
                 SELECT finalgrade
                 FROM mdl_grade_grades
-                WHERE  itemid = ? AND userid = ?', array($certificate->printgrade,,$userid));
+                WHERE  itemid = ? AND userid = ?', array($certificate->printgrade,$userid));
               foreach ($rs as $record) {
                 $highestpercent = $record->finalgrade;
         }
