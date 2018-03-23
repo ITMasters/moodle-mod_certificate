@@ -987,17 +987,17 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
             }
         }
         $rs->close();
-        print_r(var_dump($certificate)."<br>");
         if ($highestpercent == 0) {
             print_r($certificate->printgrade."<br>");
             print_r($userid);
              $rs = $DB->get_recordset_sql('
                 SELECT finalgrade
                 FROM mdl_grade_grades
-                WHERE  itemid = ? AND userid = ?', array($certificate->printgrade,$userid));
+                WHERE  itemid = (SELECT id FROM learnitm_mdln1.mdl_grade_items where itemmodule = 'quiz' and courseid = ? and itemname ='Exam') AND userid = ?', array($certificate->course,$userid));
               foreach ($rs as $record) {
                 $highestpercent = $record->finalgrade;
         }
+        
 
         $grade = $highestpercent;
         $rs->close();
