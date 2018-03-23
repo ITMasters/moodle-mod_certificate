@@ -993,11 +993,11 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
              $rs = $DB->get_recordset_sql('
                 SELECT finalgrade
                 FROM mdl_grade_grades
-                WHERE  itemid = (SELECT id FROM learnitm_mdln1.mdl_grade_items where itemmodule = 'quiz' and courseid = ? and itemname ='Exam') AND userid = ?', array($certificate->course,$userid));
+                WHERE  itemid = (SELECT id FROM learnitm_mdln1.mdl_grade_items where itemmodule = \'quiz\' and courseid = ? and itemname =\'Exam\') AND userid = ?', array($certificate->course,$userid));
               foreach ($rs as $record) {
                 $highestpercent = $record->finalgrade;
         }
-        
+
 
         $grade = $highestpercent;
         $rs->close();
