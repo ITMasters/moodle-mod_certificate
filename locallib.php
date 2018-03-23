@@ -988,8 +988,6 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
         }
         $rs->close();
         if ($highestpercent == 0) {
-            print_r($certificate->printgrade."<br>");
-            print_r($userid);
              $rs = $DB->get_recordset_sql('
                 SELECT finalgrade
                 FROM mdl_grade_grades
