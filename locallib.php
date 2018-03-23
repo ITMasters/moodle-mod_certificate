@@ -988,7 +988,6 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
         }
         $rs->close();
         if ($highestpercent == 0) {
-            //Testing if build is pushed on a branch
              $rs = $DB->get_recordset_sql('
                 SELECT finalgrade
                 FROM mdl_grade_grades
@@ -1064,7 +1063,7 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
         } elseif ($grade >= 50) {
             $grade_class = 'Pass';
         } else {
-            $grade_class = 'Sorry, you did not pass. Your grade was:';
+            $grade_class = '*TEST*Sorry, you did not pass. Your grade was:';
         }
 
         if (!$valueonly){
