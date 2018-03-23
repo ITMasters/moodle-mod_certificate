@@ -987,8 +987,20 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
             }
         }
         $rs->close();
+        if ($highestpercent == 0) {
+            //Testing if build is pushed on a branch
+             $rs = $DB->get_recordset_sql('
+                SELECT finalgrade
+                FROM mdl_grade_grades
+                WHERE  itemid = ? AND userid = ?', array($certificate->printgrade,,$userid));
+              foreach ($rs as $record) {
+                $highestpercent = $record->finalgrade;
+        }
 
         $grade = $highestpercent;
+        $rs->close();
+        }
+
         if($certificate->forumgrades != NULL && $certificate->forumgrades == true){
             $forumpercentage = $certificate->forumpercent;
             $rs = $DB->get_recordset_sql('
