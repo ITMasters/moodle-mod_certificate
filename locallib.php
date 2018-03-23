@@ -987,7 +987,7 @@ function certificate_get_itm_grade($certificate, $course, $userid = null, $value
             }
         }
         $rs->close();
-        print_r($certificate."<br>");
+        print_r(var_dump($certificate)."<br>");
         if ($highestpercent == 0) {
             print_r($certificate->printgrade."<br>");
             print_r($userid);
