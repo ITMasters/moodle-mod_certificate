@@ -120,10 +120,10 @@ if ($certificate->printteacher) {
     }
 }
 //certificate_print_text($pdf, $x, $y + 109, 'C', 'carlito', '', 14, 'Completed: ' . certificate_itm_attempt_date($certificate, $course));
-if (is_null(certificate_get_date($certificate, $certrecord, $course))) {
-
+if (checkdate(certificate_get_date($certificate, $certrecord, $course))) {
+certificate_print_text($pdf, $x, $y + 109, 'C', 'carlito', '', 14, 'Completed: ' . certificate_get_date($certificate, $certrecord, $course));
 }else{
-    certificate_print_text($pdf, $x, $y + 109, 'C', 'carlito', '', 14, 'Completed: ' . var_dump(certificate_get_date($certificate, $certrecord, $course)));
+    
 }
 
 certificate_print_text($pdf, $x, $y + 129, 'C', 'carlito', '', 14, certificate_get_outcome($certificate, $course));
