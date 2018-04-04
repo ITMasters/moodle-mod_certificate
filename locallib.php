@@ -931,7 +931,7 @@ function certificate_itm_mingrade_met($certificate, $course, $userid = null, $va
         }
         $rs->close();
                 // ADD THIS OLD return $highestpercent >= $certificate->mingrade;
-        return $highestpercent > $certificate->mingrade;
+        return $highestpercent >= $certificate->mingrade;
     }
     return false;
 }
