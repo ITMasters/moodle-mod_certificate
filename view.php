@@ -112,7 +112,7 @@ if (empty($action)) { // Not displaying PDF
     if (!empty($certificate->intro)) {
         echo $OUTPUT->box(format_module_intro('certificate', $certificate, $cm->id), 'generalbox', 'intro');
     }
-    echo '<h5>Cut off date and time: ' . userdate($certificate->cutoffdate) . '</h5>';
+    //echo '<h5>Cut off date and time: ' . userdate($certificate->cutoffdate) . '</h5>';
     echo '<h5>Minimum grade: ' . $certificate->mingrade . '%</h5>';
     if (certificate_itm_mingrade_met($certificate, $course)) {
         if ($attempts = certificate_get_attempts($certificate->id)) {
@@ -136,7 +136,7 @@ if (empty($action)) { // Not displaying PDF
         echo html_writer::tag('div', $OUTPUT->render($button), array('style' => 'text-align:center'));
     }
     elseif(!certificate_itm_mingrade_met($certificate, $course)){
-    	echo html_writer::tag('p', certificate_get_itm_grade($certificate, $course), array('style' => 'text-align:center'));
+        echo html_writer::tag('p', certificate_get_itm_grade($certificate, $course), array('style' => 'text-align:center'));
     }
     echo $OUTPUT->footer($course);
     exit;
