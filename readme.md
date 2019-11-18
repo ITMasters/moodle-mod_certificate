@@ -1,7 +1,7 @@
 ## ITM Certificate.
 
 This Certificate Module. Is for the exam activities, where the award Certificates are based on quiz attempts and only works with quizes 
-
+- The certificate module for Moodle. Please do NOT file PULL requests here, instead use http://tracker.moodle.org
 
 
 ## Moodle Generic Installation
